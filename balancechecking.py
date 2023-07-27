@@ -24,27 +24,34 @@ Input: {[()]}  Output: True
 Input: [()]  Output: True
 
 Input:{[{}]  Output: False
+[{('')}]
 
 """
 class Solution:
-    def isBalanced(self, parenthesis):
-        stack = []
-        for character in parenthesis:
-            if character == '[' or character == '{' or character == '(':
-                stack.append(character)
-            elif character == ']' or character == '}' or character == ')':
-                top = stack.pop()
-                if stack == [] and parenthesis != '':
-                    return True
-                elif stack != [] and parenthesis == '':
-                    return True
-                if top != '[' and character == ']':
-                    return True
-                if top != '{' and character == '}':
-                    return True
-                if top != '(' and character == ')':
-                    return True
-        return stack == []
+    def isBalanced(self, parenthesis): 
+            #type parenthesis: string
+            #return type: boolean
+            for index , i in enumerate(parenthesis):
+                 if parenthesis[index] == '(':
+                    if parenthesis[len(parenthesis)-index-1] != ')':
+                        return False
+                 if parenthesis[index] == '{':
+                    if parenthesis[len(parenthesis)-index-1] != '}':
+                        return False
+                    
+                 if parenthesis[index] == '[':
+                    if parenthesis[len(parenthesis)-index-1] != ']':
+                        return False
+                 if parenthesis[index] == "'":
+                    if parenthesis[len(parenthesis)-index-1] != "'":
+                        return False   
+                 else:
+                    return False
+                
+            return True
+            
+            #TODO: Write code below to returnn a boolean value with the solution to the prompt.
+            pass
 
 def main():
     str1=input()
