@@ -28,32 +28,22 @@ Input:{[{}]  Output: False
 """
 class Solution:
     def isBalanced(self, parenthesis): 
-            #type parenthesis: string
-            #return type: boolean
-            big = 0
-            mid = 0
-            sml = 0
-            if len(parenthesis) % 2 == 0:
-                 return True
-            for i in parenthesis:
-                if i == "{":
-                    big += 1
-                elif i == "}":
-                    big -= 1
-                if i == "[":
-                    mid += 1
-                elif i == "]":
-                    mid -= 1
-                if i == "(":
-                    sml += 1
-                elif i == ")":
-                    sml -= 1
-            if big == 0 and mid == 0 and sml == 0:
-                return True
-            return False
-            #TODO: Write code below to returnn a boolean value with the solution to the prompt.
-            pass
+        stack = []
+        openBracket = ['(','[','{']
+        closingBrackets = [')',']','}']
+        matchingBrackets = dict(zip(closingBrackets,openBracket))
 
+        for char in parenthesis
+            if char in openBracket
+                stack.append(char)
+            elif char in closingBrackets:
+                if len(stack) == 0
+                    return False
+                topElement = stack.pop()
+                if matchingBrackets[char] !=topElement
+                    return False
+            
+        return len(stack) ==0
 def main():
     str1=input()
     tc1= Solution()
