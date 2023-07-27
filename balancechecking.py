@@ -33,17 +33,17 @@ class Solution:
         closingBrackets = [')',']','}']
         matchingBrackets = dict(zip(closingBrackets,openBracket))
 
-        for char in parenthesis
-            if char in openBracket
+        for char in parenthesis:
+            if char in openBracket:
                 stack.append(char)
             elif char in closingBrackets:
-                if len(stack) == 0
+                if len(stack) == 0:
                     return False
                 topElement = stack.pop()
                 if matchingBrackets[char] !=topElement
                     return False
             
-        return len(stack) ==0
+        return len(stack) == 0
 def main():
     str1=input()
     tc1= Solution()
