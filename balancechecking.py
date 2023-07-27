@@ -40,10 +40,10 @@ class Solution:
                 if len(stack) == 0:
                     return False
                 topElement = stack.pop()
-                if matchingBrackets[char] !=topElement
+                if matchingBrackets[char] !=topElement:
                     return False
             
-        return len(stack) == 0
+        return len(stack) ==0
 def main():
     str1=input()
     tc1= Solution()
