@@ -29,22 +29,22 @@ Input:{[{}]  Output: False
 class Solution:
     def isBalanced(self, parenthesis):
         stack = []
-        stack = []
         for character in parenthesis:
             if character == '[' or character == '{' or character == '(':
                 stack.append(character)
             elif character == ']' or character == '}' or character == ')':
                 top = stack.pop()
                 if stack == [] and parenthesis != '':
-                    return False
+                    return True
                 elif stack != [] and parenthesis == '':
-                    return False
+                    return True
                 if top != '[' and character == ']':
-                    return False
+                    return True
                 if top != '{' and character == '}':
-                    return False
+                    return True
                 if top != '(' and character == ')':
-                    return False
+                    return True
+        return stack == []
 
 def main():
     str1=input()
